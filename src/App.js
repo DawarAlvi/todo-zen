@@ -1,4 +1,4 @@
-import {useState} from 'react'
+import {useEffect, useState, useRef} from 'react'
 import Item from './components/Item';
 import logo from './logo.svg';
 
@@ -7,6 +7,7 @@ function App() {
     item:""
   })
   let [items, setItems] = useState([])
+  const isMounted = useRef(false);
 
 function onFormChange(e) {
   let {name, value} = e.target
@@ -25,7 +26,7 @@ function onSubmit(e) {
   setForm((currForm) => {return {...currForm,item:""}})
 }
 
-function HandleIsDoneChanged(idx,value) {
+function handleIsDoneChanged(idx,value) {
   setItems((currItems) => currItems.map((item,i) => {
       i === idx && (item.isDone = value)
       return item
@@ -33,11 +34,25 @@ function HandleIsDoneChanged(idx,value) {
   ))
 }
 
-function HandleDeletePressed(idx) {
+function handleDeletePressed(idx) {
   setItems((currItems) => 
   currItems.filter((item, i)=> i!=idx)
   )
 }
+
+
+useEffect(() => {
+  let lsItems = JSON.parse(localStorage.getItem("items"))
+  if (lsItems) {
+    setItems(lsItems)
+  }
+
+},[])
+
+useEffect(() => {
+  if (!isMounted.current) {isMounted.current = true;return};
+  localStorage.setItem("items", JSON.stringify(items))
+},[items])
 
 return (
     <div className="App">
@@ -48,16 +63,17 @@ return (
       <div className="items">
       {
         items.map((item,idx) => (
-            <Item
-            key={idx}
-            itemData={item}
-            HandleIsDoneChanged={(value)=>HandleIsDoneChanged(idx, value)}
-            HandleDeletePressed={()=>HandleDeletePressed(idx)}
-            />
+          <Item
+          key={idx}
+          itemData={item}
+          HandleIsDoneChanged={(value)=>handleIsDoneChanged(idx, value)}
+          HandleDeletePressed={()=>handleDeletePressed(idx)}
+          />
           )
-        )
-      }
+          )
+        }
       </div>
+
     </div>
   );
 }

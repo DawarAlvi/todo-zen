@@ -7,6 +7,7 @@ function App() {
     item: "",
   });
   let [items, setItems] = useState([]);
+  let [isDarkMode, setIsDarkMode] = useState(false)
   const isMounted = useRef(false);
 
   function onFormChange(e) {
@@ -58,9 +59,12 @@ function App() {
         body.classList.remove("dark-mode");
       }
     }
-    localStorage.setItem("darkMode", body.classList.contains("dark-mode"));
-  }
 
+    const darkModeValue = body.classList.contains("dark-mode")
+    setIsDarkMode(darkModeValue)
+    localStorage.setItem("darkMode", darkModeValue);
+  }
+  
   useEffect(() => {
     let lsItems = JSON.parse(localStorage.getItem("items"));
     if (lsItems) {
@@ -107,7 +111,7 @@ function App() {
           toggleDarkMode();
         }}
       >
-        🌙🌞
+        {isDarkMode ? "🌞" : "🌙"}
       </button>
     </div>
   );

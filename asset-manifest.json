@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/todo-zen/static/css/main.a1a7c32f.css",
-    "main.js": "/todo-zen/static/js/main.04d894dd.js",
+    "main.css": "/todo-zen/static/css/main.874b70d4.css",
+    "main.js": "/todo-zen/static/js/main.8a03c91e.js",
     "static/js/787.8eb42f38.chunk.js": "/todo-zen/static/js/787.8eb42f38.chunk.js",
     "static/media/logo.svg": "/todo-zen/static/media/logo.6ce24c58023cc2f8fd88fe9d219db6c6.svg",
     "index.html": "/todo-zen/index.html",
-    "main.a1a7c32f.css.map": "/todo-zen/static/css/main.a1a7c32f.css.map",
-    "main.04d894dd.js.map": "/todo-zen/static/js/main.04d894dd.js.map",
+    "main.874b70d4.css.map": "/todo-zen/static/css/main.874b70d4.css.map",
+    "main.8a03c91e.js.map": "/todo-zen/static/js/main.8a03c91e.js.map",
     "787.8eb42f38.chunk.js.map": "/todo-zen/static/js/787.8eb42f38.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.a1a7c32f.css",
-    "static/js/main.04d894dd.js"
+    "static/css/main.874b70d4.css",
+    "static/js/main.8a03c91e.js"
   ]
 }

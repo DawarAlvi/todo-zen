@@ -1,13 +1,28 @@
 import React from 'react'
 
 const Item = (props) => {
-    const itemData = props.itemData
-
+    const {idx, content, isDone,} = props.itemData
+console.log(idx);
     return (
     <div className="item">
-        <input type="checkbox" checked={itemData.isDone} onChange={()=>props.HandleIsDoneChanged(!itemData.isDone)}/>
-        <span className={(itemData.isDone ? "done":"")}>{itemData.content}</span>
-        <button className="item--delete" onClick={props.HandleDeletePressed}>🗑</button>
+        <input
+        type="checkbox"
+        checked={isDone}
+        id={idx}
+        onChange={ () => props.HandleIsDoneChanged(!isDone) }
+        />
+        
+        <label
+        className={(isDone ? "done":"")}
+        htmlFor={idx}>
+          {content}
+        </label>
+        
+        <button
+        className="item--delete" 
+        onClick={props.HandleDeletePressed}>
+          🗑
+        </button>
     </div>
   )
 }

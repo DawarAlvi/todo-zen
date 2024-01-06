@@ -100,7 +100,7 @@ function App() {
         {items.map((item, idx) => (
           <Item
             key={idx}
-            itemData={item}
+            itemData={{...item,"idx":idx}}
             HandleIsDoneChanged={(value) => handleIsDoneChanged(idx, value)}
             HandleDeletePressed={() => handleDeletePressed(idx)}
           />

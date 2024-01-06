@@ -113,5 +113,6 @@ input[type="checkbox"]:checked:after {
 
   position: absolute;
   bottom: 1rem;
-  left: 1rem;
+  left: 0.5rem;
+  filter: grayscale(1);
 }

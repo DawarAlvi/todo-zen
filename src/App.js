@@ -89,6 +89,7 @@ function App() {
       <form onSubmit={onSubmit}>
         <input
           autoFocus
+          autoComplete="off"
           className="item-input"
           name="item"
           onChange={onFormChange}

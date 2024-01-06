@@ -2,7 +2,7 @@ import React from 'react'
 
 const Item = (props) => {
     const {idx, content, isDone,} = props.itemData
-console.log(idx);
+
     return (
     <div className="item">
         <input

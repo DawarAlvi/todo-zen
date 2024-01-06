@@ -40,6 +40,22 @@ function handleDeletePressed(idx) {
   )
 }
 
+function toggleDarkMode(value) {
+  const body = document.querySelector('body');
+  if (value === undefined) {
+    body.classList.toggle("dark-mode");
+  }
+  else {
+    if (value) {
+      body.classList.add("dark-mode")
+      
+    }
+    else {
+      body.classList.remove("dark-mode")
+    }
+  }
+  localStorage.setItem("darkMode",body.classList.contains("dark-mode"));
+}
 
 useEffect(() => {
   let lsItems = JSON.parse(localStorage.getItem("items"))
@@ -47,6 +63,8 @@ useEffect(() => {
     setItems(lsItems)
   }
 
+  const lsDarkMode = localStorage.getItem("darkMode") === "true"
+  toggleDarkMode(lsDarkMode)
 },[])
 
 useEffect(() => {
@@ -73,7 +91,10 @@ return (
           )
         }
       </div>
-
+      <button
+      className="dark-mode-toggle"
+      onClick={()=>{toggleDarkMode()}}
+      >🌙</button>
     </div>
   );
 }

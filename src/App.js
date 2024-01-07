@@ -24,11 +24,11 @@ function App() {
     }
 
     setItems((currItems) => [
-      ...currItems,
       {
         content: form.item,
         isDone: false,
       },
+      ...currItems
     ]);
     setForm((currForm) => {
       return { ...currForm, item: "" };

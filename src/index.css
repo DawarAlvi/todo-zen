@@ -111,6 +111,9 @@ form {
 .item--delete:hover {
   color: red;
 }
+.item--delete:focus {
+    color: var(--foreground);
+}
 
 .done {
   opacity: .4;
